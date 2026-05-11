@@ -176,4 +176,5 @@ async def main():
     while True:
         await asyncio.sleep(10)
 
-await main()
+import asyncio
+asyncio.run(main())
