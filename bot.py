@@ -3,8 +3,6 @@ import asyncio
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 
-nest_asyncio.apply()
-
 TOKEN = "8757169873:AAHYn_cV6tcZrBZPpF4ZWWP-kPp1ftouNkA"
 
 logging.basicConfig(level=logging.INFO)
