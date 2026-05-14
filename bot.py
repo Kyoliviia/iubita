@@ -46,7 +46,7 @@ questions = [
 
 answers = [
     ["молдова", "молдавия", "moldova", "botna", "la botna", "in moldova", "В молдавии", "В молдове"],
-    ["орхидея", "orhidee", "orhideiele", "орхидеи"],
+    ["орхидея", "orhidee", "orhideiele", "орхидеи", "orhideea", "orhideele"],
     ["чёрный", "черный", "белый", "серый", "negru", "alb", "sur", "negru, alb, sur", "negru, sur, alb", "alb, negru,sur", "alb, sur, negru", "sur, alb, negru", "sur, negru, alb"],
     ["карбонара", "carbonara", "toate macaroanele", "macaroane", "macaroane carbonara", "все макароны"],
     ["любимая", "iubita", "iubire", "amore", "моя любимая", "Любимая, iubita, amore"],
