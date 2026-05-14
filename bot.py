@@ -17,9 +17,11 @@ menu = ReplyKeyboardMarkup(
 
 rules_text = """
 📜 ПРАВИЛА:
-- отвечай честно 💞
-- за ошибки будут романтические задания 😏
+- это мини викторина обо мне, тебе нужно отвечать правильно и честно 
+- ты можешь отвечать и на румынском и на русском 
+- если что ответы с маленькой буквой все, если будут с большой буквой не защитается 
 - в конце тебя ждёт подарок 🎁
+- желательно чтоб ты делал поменьше ошибок, а то приза тебе не видать)
 """
 
 questions = [
@@ -27,51 +29,53 @@ questions = [
     "Какой мой любимый цветок?",
     "Какой мой любимый цвет?",
     "Моё любимое блюдо?",
-    "Как ты меня называешь?",
+    "Как ты меня называешь? (можешь называть одно)",
     "Как я тебя называю?",
     "Сколько мы вместе?",
     "Когда у нас особенная дата?",
-    "Как мы познакомились?",
-    "Где была наша первая встреча?",
-    "Что ты должен получить в конце игры?",
+    "Как мы познакомились? (не нужно рассказывать прям как, просто где или как)",
+    "Во сколько лкт я начала делать ногти?",
+    "Мой любимый фильм? (назови только один и на русском)",
     "Кто создал эту игру?",
-    "Что я чувствую к тебе?",
-    "Кто ты для меня?",
-    "Что самое важное между нами?",
-    "Что ты должен сделать после игры?",
-    "Что я для тебя?",
-    "Что ты должен сделать сейчас?"
+    "Кака звали мою собаку?",
+    "Во сколько я родилась?",
+    "как называются таблетки которые я пью?",
+    "Как зовут мою бабушку? (хотябф одну)",
+    "Ты меня любишь?"
 ]
 
 answers = [
-    ["молдова", "Молдавия"],
-    ["орхидея"],
-    ["чёрный", "черный"],
-    ["карбонара"],
-    ["любимая"],
-    ["любимый"],
-    ["10 месяцев", "10"],
-    ["2 июля"],
-    ["онлайн", "переписка"],
-    ["молдова"],
-    ["keepsafe"],
-    ["любимая девушка", "Любимая"],
-    ["любовь", "симпатию"],
-    ["любимый"],
-    ["доверие", "связь"],
-    ["скачать keepsafe", "keepsafe"],
-    ["любовь", "Жизнь", "Всё", "Все"],
-    ["принять награду"]
+    ["молдова", "молдавия", "moldova", "botna", "la botna", "in moldova", "В молдавии", "В молдове"],
+    ["орхидея", "orhidee", "orhideiele", "орхидеи"],
+    ["чёрный", "черный", "белый", "серый", "negru", "alb", "sur", "negru, alb, sur", "negru, sur, alb", "alb, negru,sur", "alb, sur, negru", "sur, alb, negru", "sur, negru, alb"],
+    ["карбонара", "carbonara", "toate macaroanele", "macaroane", "macaroane carbonara", "все макароны"],
+    ["любимая", "iubita", "iubire", "amore", "моя любимая", "Любимая, iubita, amore"],
+    ["любимый", "iubitu", "iubitu, любимый ", "любимый, iubitu"],
+    ["10 месяцев", "10", "10 luni", "10 luni", "10 lini si 13 zile", "10 lini si 12 zile", "10 месяцев и 13 дней"],
+    ["2 июля", "2 iulie", "pe 2 iulie", "2 iulie 2025", "2 июля 2025"],
+    ["онлайн", "переписка", "pe tik tok", "pe tiktok", "in conversatie", "online", "din cauza lu ruslan", "prin ruslan"],
+    ["14", "la 14", "в 14", "la 14 ani", "14 ani"],
+    ["Голодные игры", "Сотня", "Дивергент"],
+    ["любимая девушка", "любимая", "моя любимая девушка", "iubita mea", "iubita", "prietena mea iubita", "iubita mea frumoasa", "cea mai frumosa fata din lume"],
+    ["босс", "boss", "boseacu"],
+    ["10", "10:00", "la ora 10:00", "la ora 10 fix", "в 10:00"],
+    ["raocutan, раокутан"],
+    ["евгения", "eugenia", "jenea", "sfeta", "sveta", "svetlana", "светлана", "eugenia, sfetlana", "eugenia, sfeta", "eugenia, sveta", "sfeta, eugenia", "sveta ,eugenia", "svetlana, eugenia"],
+    ["да", "конечно", "разумеется", "da", "si clar", "conesna", "conesna ca te iubesc", "da te iubesc", "foarte tare"]
 ]
 
 penalties = [
-    "Расскажи, почему ты меня любишь 😏",
-    "Что тебе во мне больше всего нравится?",
+    "Я хирею",
+    "Tu cauti sa fii batut?",
     "Ты издеваешься? Почему ты ошибаешься?",
     "Я в шоке нахрен, ты вообще любишь меня?",
-    "Докажи, что ты скучаешь по мне 💞",
-    "Почему ты выбрал именно меня?",
-    "Что бы ты сделал ради меня?"
+    "Как ты мог ответитьнеправильно?",
+    "Выбирай чем тебя лучше бить лопатой или ремнем?",
+    "У меня нет слов"
+    "Я не ожидала что ты сделаешь столько ошибок"
+    "Нет ну это уже правда перебор тебе не кажется?"
+    "Господи помоги"
+    "НЕт все ты не получишь никакого подарка."
 ]
 
 def normalize(text):
@@ -130,7 +134,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
         state[user_id] += 1
 
         if state[user_id] < len(questions):
-            await update.message.reply_text("💞 Принято… идём дальше 😏")
+            await update.message.reply_text("Ладно")
             await update.message.reply_text(questions[state[user_id]])
         else:
             await finish(update)
@@ -141,7 +145,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         if text in answers[step]:
 
-            await update.message.reply_text("💞 Молодец… ты всё помнишь 😏")
+            await update.message.reply_text("Правильно")
 
             state[user_id] += 1
 
@@ -153,7 +157,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
         else:
             penalty = penalties[step % len(penalties)]
 
-            await update.message.reply_text("😏 Неправильно...")
+            await update.message.reply_text("Неправильно...")
             await update.message.reply_text("💌 " + penalty)
 
             waiting_penalty[user_id] = True
